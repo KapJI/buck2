@@ -221,7 +221,7 @@ jobs:
       run: |
         cd website
         yarn
-        BUCK2_BIN="$HOME/artifacts/buck2-release" yarn build_prebuilt
+        BUCK2_BIN="$GITHUB_WORKSPACE/artifacts/buck2-release" yarn build_prebuilt
     # - name: Deploy
     #   uses: JamesIves/github-pages-deploy-action@releases/v4
     #   with:
