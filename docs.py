@@ -73,7 +73,6 @@ def main() -> None:
     parser.add_argument(
         "--buck2",
         nargs="?",
-        type=Path,
         help="Whether to use provided binary.",
     )
     args = parser.parse_args()
