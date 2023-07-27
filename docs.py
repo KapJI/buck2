@@ -29,6 +29,7 @@ def write_file(path, contents):
 
 def buck_command(args):
     if args.buck2:
+        print("Using provided Buck2:", args.buck2)
         return args.buck2
     elif args.prod:
         return "buck2"
