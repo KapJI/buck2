@@ -208,12 +208,12 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: buck2-x86_64-unknown-linux-gnu
-        path: buck2.zst
+        path: artifacts
     - name: Decompress Buck2
       run: |
-        zstd -d buck2.zst -o buck2-release
-        chmod +x buck2-release
-    - name: Dependencies
+        zstd -d artifacts/buck2-x86_64-unknown-linux-gnu.zst -o artifacts/buck2-release
+        chmod +x artifacts/buck2-release
+    - name: Install dependencies
       run: |
         sudo apt-get install -y yarn
       id: build
@@ -221,7 +221,7 @@ jobs:
       run: |
         cd website
         yarn
-        BUCK2_BIN=buck2-release yarn build_prebuilt
+        BUCK2_BIN="./artifacts/buck2-release" yarn build_prebuilt
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v4
       with:
