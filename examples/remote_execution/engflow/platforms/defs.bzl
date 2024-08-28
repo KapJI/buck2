@@ -23,6 +23,7 @@ def _platforms(ctx):
             use_limited_hybrid = True,
             remote_execution_properties = {
                 "container-image": image,
+                "dockerNetwork": "standard",
             },
             remote_execution_use_case = "buck2-default",
             # TODO: Use output_paths

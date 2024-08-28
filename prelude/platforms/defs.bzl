@@ -12,13 +12,21 @@ def _execution_platform_impl(ctx: AnalysisContext) -> list[Provider]:
     cfg = ConfigurationInfo(constraints = constraints, values = {})
 
     name = ctx.label.raw_target()
+    image = "docker://ruslansayfutdinov/buck2-engflow@sha256:df6713410d58f21fca93c8ca7d4be69e31c2a30b3151cb1ae4870be73c2d5124"
     platform = ExecutionPlatformInfo(
         label = name,
         configuration = cfg,
         executor_config = CommandExecutorConfig(
             local_enabled = True,
-            remote_enabled = False,
+            remote_enabled = True,
+            use_limited_hybrid = True,
             use_windows_path_separators = ctx.attrs.use_windows_path_separators,
+            remote_execution_properties = {
+                "container-image": image,
+                "dockerNetwork": "standard",
+            },
+            remote_execution_use_case = "buck2-default",
+            remote_output_paths = "strict",
         ),
     )
 
