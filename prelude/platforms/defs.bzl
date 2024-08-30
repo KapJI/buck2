@@ -12,7 +12,7 @@ def _execution_platform_impl(ctx: AnalysisContext) -> list[Provider]:
     cfg = ConfigurationInfo(constraints = constraints, values = {})
 
     name = ctx.label.raw_target()
-    image = "docker://ruslansayfutdinov/buck2-engflow@sha256:df6713410d58f21fca93c8ca7d4be69e31c2a30b3151cb1ae4870be73c2d5124"
+    image = "docker://ruslansayfutdinov/buck2-engflow@sha256:86140e7ad4bbf6fa7d54f6d1e960c8cb596dfd875efcfff0cfe6221801236e4a"
     platform = ExecutionPlatformInfo(
         label = name,
         configuration = cfg,
