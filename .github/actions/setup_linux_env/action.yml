@@ -3,7 +3,7 @@ description: Setup Linux environment
 runs:
   using: composite
   steps:
-  - uses: SebRollen/toml-action@v1.0.2
+  - uses: SebRollen/toml-action@v1.2.0
     id: read_rust_toolchain
     with:
       file: rust-toolchain
@@ -25,7 +25,7 @@ runs:
   - name: Install conan
     run: sudo pip3 install conan==1.*
     shell: bash
-  - uses: actions/checkout@v4
   - uses: actions/setup-go@v5
     with:
+      cache: false
       go-version: '~1.22.0'
