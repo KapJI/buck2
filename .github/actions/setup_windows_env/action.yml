@@ -23,4 +23,5 @@ runs:
       components: clippy
   - uses: actions/setup-go@v5
     with:
+      cache: false
       go-version: '~1.22.0'
